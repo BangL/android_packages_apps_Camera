@@ -30,10 +30,6 @@ import android.media.CamcorderProfile;
 import android.util.FloatMath;
 import android.util.Log;
 
-import android.os.Environment;
-import android.os.storage.StorageManager;
-import android.os.storage.StorageVolume;
-
 import com.android.gallery3d.common.ApiHelper;
 
 import java.util.ArrayList;
@@ -75,7 +71,6 @@ public class CameraSettings {
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
     public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
     public static final String KEY_BURST_MODE = "pref_camera_burst_key";
-    public static final String KEY_STORAGE = "pref_camera_storage_key";
 
     public static final String EXPOSURE_DEFAULT_VALUE = "0";
     public static final String VALUE_ON = "on";
@@ -259,8 +254,6 @@ public class CameraSettings {
         if (videoColorEffect != null) {
             filterUnsupportedOptions(group,
                     videoColorEffect, mParameters.getSupportedColorEffects());
-        }
-        if (storage != null) buildStorage(group, storage);
     }
 
     private void buildStorage(PreferenceGroup group, ListPreference storage) {
